@@ -60,11 +60,9 @@ class CategoriesController extends Controller
             if(!$category){
                 throw new \Exception('Category not found', 404);
             }
-            dd($category);
             $this->categoriesService->updateCategory($category, $request->all());
             return successResponse([], 'Category updated successfully');
         } catch (Throwable $e) {
-            dd($e);
             return errorResponse($e->getMessage(), $e->getCode());
         }
     }
